@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Figurine", menuName = "Figurine")]
 public class ModelData : ScriptableObject
 {
-    public Transform position;
+    public Vector3 OriginPosition;
     public GameObject prefab;
 }
