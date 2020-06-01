@@ -14,7 +14,6 @@ public class instantiateFigurine : MonoBehaviour
         {
             //Instantiate(SelectionManager.SelectedFigurine.prefab, SelectionManager.SelectedFigurine.OriginPosition, FigRotation, spawnParent.transform);
             GameObject SpawnedFig = Instantiate(SelectionManager.SelectedFigurine.prefab, spawnParent.transform);
-
         }
         else
         {
