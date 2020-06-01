@@ -759,10 +759,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 25ba0c44-ae0e-44d8-a6da-6e3cc85ae003
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: GAT399_Assignment1
-  organizationId: shermantong
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
