@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ARfoundation\ARTapToPlaceObject.cs" />
      <Compile Include="Assets\Scripts\MobileTouchControl.cs" />
      <Compile Include="Assets\Scripts\PlaneSpawner.cs" />
      <Compile Include="Assets\Scripts\Scriptable\ModelData.cs" />
@@ -178,6 +179,12 @@
  </Reference>
  <Reference Include="Unity.XR.ARFoundation">
  <HintPath>D:/AllWinFolders/Document/GitHub/AmiAmiAR/AmiAmi AR Project/GAT399_Assignment1/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.ARCore">
+ <HintPath>D:/AllWinFolders/Document/GitHub/AmiAmiAR/AmiAmi AR Project/GAT399_Assignment1/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.XR.ARCore.Editor">
+ <HintPath>D:/AllWinFolders/Document/GitHub/AmiAmiAR/AmiAmi AR Project/GAT399_Assignment1/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/UnityEditor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
