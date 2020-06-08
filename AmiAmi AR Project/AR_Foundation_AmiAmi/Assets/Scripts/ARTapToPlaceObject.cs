@@ -26,10 +26,10 @@ public class ARTapToPlaceObject : MonoBehaviour
         UpdatePlacementPose();
         UpdatePlacementIndicator();
 
-        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            PlaceObject();
-        }
+       // if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+       // {
+       //     PlaceObject();
+       // }
     }
 
     private void PlaceObject()
@@ -52,9 +52,10 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     void UpdatePlacementPose()
     {
-        var screenCenter = cam.ViewportToScreenPoint(new Vector3(0.5f,0.5f));        
+        var screenCenter = Camera.main.ViewportToScreenPoint(new Vector3(0.5f,0.5f));        
         var hits = new List<ARRaycastHit>();
-        var rayCastMgr = GetComponent<ARRaycastManager>();
+        var rayCastMgr = FindObjectOfType<ARRaycastManager>();
+
         rayCastMgr.Raycast(screenCenter, hits, TrackableType.Planes);
 
 
@@ -63,7 +64,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             placementPose = hits[0].pose;
 
-            var CameraForward = cam.transform.forward;
+            var CameraForward = Camera.main.transform.forward;
             var CamBearing = new Vector3(CameraForward.x, 0, CameraForward.z).normalized;
             placementPose.rotation = Quaternion.LookRotation(CamBearing);
         }
