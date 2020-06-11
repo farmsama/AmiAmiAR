@@ -16,6 +16,8 @@ public class ARTapToPlaceObject : MonoBehaviour
     private Pose placementPose;
     private bool placementPoseIsValid = false;
 
+    GameObject instantiatedFigure = null;
+
     void Start()
     {
         arOrigin = FindObjectOfType<ARSessionOrigin>();
@@ -26,20 +28,31 @@ public class ARTapToPlaceObject : MonoBehaviour
         UpdatePlacementPose();
         UpdatePlacementIndicator();
 
-       // if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-       // {
-       //     PlaceObject();
-       // }
+        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            PlaceObject();
+        }
+
+        if (Input.touchCount > 1)
+        {
+            if (instantiatedFigure != null)
+            {
+                Destroy(instantiatedFigure);
+            }
+        }
     }
 
     private void PlaceObject()
     {
-        Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
+        if (instantiatedFigure == null)
+        {
+            instantiatedFigure = Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
+        }
     }
 
     private void UpdatePlacementIndicator()
     {
-        if (placementPoseIsValid)
+        if (placementPoseIsValid && instantiatedFigure == null)
         {
             placementIndicator.SetActive(true);
             placementIndicator.transform.SetPositionAndRotation(placementPose.position, placementPose.rotation);
