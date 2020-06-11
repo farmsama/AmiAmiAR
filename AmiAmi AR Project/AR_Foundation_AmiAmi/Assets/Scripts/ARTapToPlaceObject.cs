@@ -57,6 +57,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         var rayCastMgr = FindObjectOfType<ARRaycastManager>();
 
         rayCastMgr.Raycast(screenCenter, hits, TrackableType.Planes);
+        
 
 
         placementPoseIsValid = hits.Count > 0;
