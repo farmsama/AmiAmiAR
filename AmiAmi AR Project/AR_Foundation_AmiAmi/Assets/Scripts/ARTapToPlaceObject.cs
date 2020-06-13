@@ -46,7 +46,10 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         if (instantiatedFigure == null)
         {
-            instantiatedFigure = Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
+            if (SelectionManager.SelectedFigurine != null)
+            {
+                instantiatedFigure = Instantiate(SelectionManager.SelectedFigurine.prefab, placementPose.position, placementPose.rotation);
+            }
         }
     }
 
