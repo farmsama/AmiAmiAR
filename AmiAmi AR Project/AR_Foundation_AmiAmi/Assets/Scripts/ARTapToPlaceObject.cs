@@ -18,9 +18,19 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     GameObject instantiatedFigure = null;
 
+    public GameObject tapToPlaceFigure_UI; //Only appears when there is NO figure
+    public GameObject ResetButton_UI; //Only appears when there IS A Figure
+    public GameObject lookAround_UI;
+
+    public ARPlaneManager planeManager;
+
     void Start()
     {
         arOrigin = FindObjectOfType<ARSessionOrigin>();
+
+        //Initialise UI - Set Active
+        tapToPlaceFigure_UI.SetActive(false);
+        ResetButton_UI.SetActive(false);
     }
 
     void Update()
@@ -28,18 +38,30 @@ public class ARTapToPlaceObject : MonoBehaviour
         UpdatePlacementPose();
         UpdatePlacementIndicator();
 
+        //UI Before Figure placement
+        if (instantiatedFigure == null)
+        {
+            if (placementPoseIsValid != true)
+            {
+                lookAround_UI.SetActive(true);
+                tapToPlaceFigure_UI.SetActive(false);
+            }
+            else
+            {
+                lookAround_UI.SetActive(false);
+                tapToPlaceFigure_UI.SetActive(true);
+            }
+        }
+        else
+        {
+
+        }
+
         if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             PlaceObject();
         }
 
-        if (Input.touchCount > 1)
-        {
-            if (instantiatedFigure != null)
-            {
-                Destroy(instantiatedFigure);
-            }
-        }
     }
 
     private void PlaceObject()
@@ -48,7 +70,16 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             if (SelectionManager.SelectedFigurine != null)
             {
-                instantiatedFigure = Instantiate(SelectionManager.SelectedFigurine.prefab, placementPose.position, placementPose.rotation);
+                instantiatedFigure = Instantiate(SelectionManager.SelectedFigurine.prefab, placementPose.position, new Quaternion(placementPose.rotation.x, placementPose.rotation.y + 180, placementPose.rotation.z, placementPose.rotation.w));
+                //instantiatedFigure = Instantiate(SelectionManager.SelectedFigurine.prefab, placementPose.position, SelectionManager.SelectedFigurine.prefab.transform.rotation);
+
+                tapToPlaceFigure_UI.SetActive(false);
+                ResetButton_UI.SetActive(true);
+
+                foreach (var plane in planeManager.trackables)
+                {
+                    plane.gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -84,6 +115,34 @@ public class ARTapToPlaceObject : MonoBehaviour
             var CameraForward = Camera.main.transform.forward;
             var CamBearing = new Vector3(CameraForward.x, 0, CameraForward.z).normalized;
             placementPose.rotation = Quaternion.LookRotation(CamBearing);
+        }
+    }
+
+    public void ResetFigurinePlacement()
+    {
+        if (instantiatedFigure != null)
+        {
+            Destroy(instantiatedFigure);
+
+            tapToPlaceFigure_UI.SetActive(true);
+            ResetButton_UI.SetActive(false);
+
+            foreach (var plane in planeManager.trackables)
+            {
+                plane.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public bool isFigurineInstantiated()
+    {
+        if (instantiatedFigure != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
