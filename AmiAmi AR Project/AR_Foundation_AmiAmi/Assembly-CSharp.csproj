@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ButtonFigureIndex.cs" />
      <Compile Include="Assets\Scripts\ARTapToPlaceObject.cs" />
      <Compile Include="Assets\Scripts\MobileTouchControl.cs" />
      <Compile Include="Assets\Scripts\Scriptable\ModelData.cs" />

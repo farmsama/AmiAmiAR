@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -14,8 +15,28 @@ public class SelectionManager : MonoBehaviour
     public string Ar_sceneName;
 
     // UI stuffs
-    public bool DetailPage = false;
+    [Space(20)]
+    public bool ViewingDetails = false;
+    public GameObject DetailPageObj;
 
+    public GameObject TargetFig_Button;
+
+    public void Start()
+    {
+        // AutoCreation of All avaliable buttons and set the index values.
+        for (int i = 0; i < ListOfFigurines.Length; i++)
+        {
+            //Debug.Log(i);
+            //GameObject instantiateButton = Instantiate(TargetFig_Button, TargetFig_Button.transform.position, TargetFig_Button.transform.rotation);
+            //instantiateButton.GetComponent<ButtonFigureIndex>().FigureIndex = i;
+        }
+    }
+
+
+    //-----------------------------------------------------------//
+    //-----------------------------------------------------------//
+    //-----------------------------------------------------------//
+    // General Functions regarding Selection
     public void ClearSelected()
     {
         SelectedFigurine = null;
@@ -24,9 +45,12 @@ public class SelectionManager : MonoBehaviour
     public void ReplaceSelected(ModelData _selected)
     {
         SelectedFigurine = _selected;
-    }   
+    }
 
 
+    //-----------------------------------------------------------//
+    //-----------------------------------------------------------//
+    //-----------------------------------------------------------//
     // UI Button functions
     public void LoadARScene()
     {
@@ -35,13 +59,15 @@ public class SelectionManager : MonoBehaviour
 
     public void LoadDetailPage(int _figureIndex)
     {
+        DetailPageObj.SetActive(true);
         ReplaceSelected(ListOfFigurines[_figureIndex]);
-        DetailPage = true;
+        ViewingDetails = true;
     }
 
     public void ExitDetailPage()
     {
-        DetailPage = false;
+        DetailPageObj.SetActive(false);
+        ViewingDetails = false;
         ClearSelected();
     }
 
