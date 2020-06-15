@@ -62,6 +62,9 @@ public class SelectionManager : MonoBehaviour
         //DetailPageObj.SetActive(true);
         ReplaceSelected(ListOfFigurines[_figureIndex]);
         ViewingDetails = true;
+
+        OpenCatalogue oc = FindObjectOfType<OpenCatalogue>();
+        oc.OnButtonPressed();
     }
 
     public void ExitDetailPage()
