@@ -21,6 +21,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     public GameObject tapToPlaceFigure_UI; //Only appears when there is NO figure
     public GameObject ResetButton_UI; //Only appears when there IS A Figure
     public GameObject lookAround_UI;
+    public GameObject dragLeftOrRightToRot_UI;
 
     public ARPlaneManager planeManager;
 
@@ -31,6 +32,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         //Initialise UI - Set Active
         tapToPlaceFigure_UI.SetActive(false);
         ResetButton_UI.SetActive(false);
+        dragLeftOrRightToRot_UI.SetActive(false);
     }
 
     void Update()
@@ -75,6 +77,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
                 tapToPlaceFigure_UI.SetActive(false);
                 ResetButton_UI.SetActive(true);
+                dragLeftOrRightToRot_UI.SetActive(true);
 
                 foreach (var plane in planeManager.trackables)
                 {
@@ -126,6 +129,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
             tapToPlaceFigure_UI.SetActive(true);
             ResetButton_UI.SetActive(false);
+            dragLeftOrRightToRot_UI.SetActive(false);
 
             foreach (var plane in planeManager.trackables)
             {
