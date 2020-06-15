@@ -59,14 +59,14 @@ public class SelectionManager : MonoBehaviour
 
     public void LoadDetailPage(int _figureIndex)
     {
-        DetailPageObj.SetActive(true);
+        //DetailPageObj.SetActive(true);
         ReplaceSelected(ListOfFigurines[_figureIndex]);
         ViewingDetails = true;
     }
 
     public void ExitDetailPage()
     {
-        DetailPageObj.SetActive(false);
+        //DetailPageObj.SetActive(false);
         ViewingDetails = false;
         ClearSelected();
     }
