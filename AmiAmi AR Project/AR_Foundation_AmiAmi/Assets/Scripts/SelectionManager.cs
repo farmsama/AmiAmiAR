@@ -17,7 +17,7 @@ public class SelectionManager : MonoBehaviour
     // UI stuffs
     [Space(20)]
     public bool ViewingDetails = false;
-    public GameObject DetailPageObj;
+    //public GameObject DetailPageObj;
 
     public GameObject TargetFig_Button;
 
