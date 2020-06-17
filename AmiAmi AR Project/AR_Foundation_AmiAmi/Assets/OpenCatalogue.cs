@@ -16,7 +16,7 @@ public class OpenCatalogue : MonoBehaviour
     void Start()
     {
         RT = GetComponent<RectTransform>();
-        //Debug.Log(RT.localPosition);
+        Debug.Log(RT.localPosition);
     }
 
     void Update()
