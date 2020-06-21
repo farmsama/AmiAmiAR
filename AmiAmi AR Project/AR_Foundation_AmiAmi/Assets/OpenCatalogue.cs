@@ -7,8 +7,8 @@ public class OpenCatalogue : MonoBehaviour
     RectTransform RT;
     public bool isOpen = true;
 
-    Vector3 openPos = new Vector3(-480, 0, 0);
-    Vector3 closedPos = new Vector3(480, 0, 0);
+    public Vector3 openPos = new Vector3(-480, 0, 0);
+    public Vector3 closedPos = new Vector3(480, 0, 0);
     private Vector3 buttonVelocity = Vector3.zero;
     private float smoothTime = 0.5f;
 
@@ -16,7 +16,7 @@ public class OpenCatalogue : MonoBehaviour
     void Start()
     {
         RT = GetComponent<RectTransform>();
-        //Debug.Log(RT.localPosition);
+        Debug.Log(RT.localPosition);
     }
 
     void Update()
