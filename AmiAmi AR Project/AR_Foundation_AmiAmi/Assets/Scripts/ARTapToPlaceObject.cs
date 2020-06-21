@@ -25,6 +25,14 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     public ARPlaneManager planeManager;
 
+    public bool isGhostingOption = true;
+
+    //ghosting Figurine
+    GameObject ghostingFigure;
+
+    //FingerGestureAnimObj
+    public GameObject FingerGestureAnimObj;
+
     void Start()
     {
         arOrigin = FindObjectOfType<ARSessionOrigin>();
@@ -72,16 +80,37 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             if (SelectionManager.SelectedFigurine != null)
             {
-                instantiatedFigure = Instantiate(SelectionManager.SelectedFigurine.prefab, placementPose.position, new Quaternion(placementPose.rotation.x, placementPose.rotation.y + 180, placementPose.rotation.z, placementPose.rotation.w));
-                //instantiatedFigure = Instantiate(SelectionManager.SelectedFigurine.prefab, placementPose.position, SelectionManager.SelectedFigurine.prefab.transform.rotation);
+                instantiatedFigure = Instantiate(SelectionManager.SelectedFigurine.prefab, placementPose.position, placementPose.rotation);
+
+                if (ghostingFigure == null)
+                {
+                    Vector3 rot = instantiatedFigure.transform.rotation.eulerAngles;
+                    rot = new Vector3(rot.x, rot.y + 180, rot.z);
+                    instantiatedFigure.transform.rotation = Quaternion.Euler(rot);
+                }
+                else
+                {
+                    instantiatedFigure.transform.rotation = ghostingFigure.transform.rotation;
+                }
+                //instantiatedFigure = Instantiate(SelectionManager.SelectedFigurine.prefab, placementPose.position, new Quaternion(placementPose.rotation.x, placementPose.rotation.y + 180, placementPose.rotation.z, placementPose.rotation.w));
 
                 tapToPlaceFigure_UI.SetActive(false);
                 ResetButton_UI.SetActive(true);
                 dragLeftOrRightToRot_UI.SetActive(true);
 
+                if (FingerGestureAnimObj != null)
+                {
+                    FingerGestureAnimObj.SetActive(true);
+                }
+
                 foreach (var plane in planeManager.trackables)
                 {
                     plane.gameObject.SetActive(false);
+                }
+
+                if (ghostingFigure != null)
+                {
+                    Destroy(ghostingFigure);
                 }
             }
         }
@@ -125,6 +154,15 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         if (instantiatedFigure != null)
         {
+            if (isGhostingOption == true)
+            {
+                //Set figurine to Placement market
+                ghostingFigure = Instantiate(SelectionManager.SelectedFigurine.prefab);
+                ghostingFigure.transform.parent = placementIndicator.transform;
+                ghostingFigure.transform.localPosition = Vector3.zero;
+                ghostingFigure.transform.rotation = instantiatedFigure.transform.rotation;
+            }
+
             Destroy(instantiatedFigure);
 
             tapToPlaceFigure_UI.SetActive(true);
@@ -135,6 +173,9 @@ public class ARTapToPlaceObject : MonoBehaviour
             {
                 plane.gameObject.SetActive(true);
             }
+
+
+
         }
     }
 
