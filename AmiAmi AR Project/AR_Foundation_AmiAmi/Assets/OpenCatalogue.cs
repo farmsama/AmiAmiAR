@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class OpenCatalogue : MonoBehaviour
@@ -12,10 +13,13 @@ public class OpenCatalogue : MonoBehaviour
     private Vector3 buttonVelocity = Vector3.zero;
     private float smoothTime = 0.5f;
 
+    public SelectionManager SM;
+
     // Start is called before the first frame update
     void Start()
     {
         RT = GetComponent<RectTransform>();
+        SM = FindObjectOfType<SelectionManager>();
         Debug.Log(RT.localPosition);
     }
 
@@ -30,6 +34,11 @@ public class OpenCatalogue : MonoBehaviour
         {
             // open catalogue
             RT.localPosition = Vector3.SmoothDamp(RT.localPosition, openPos, ref buttonVelocity, smoothTime);
+
+            if (SelectionManager.SelectedFigurine != null)
+            {
+                SM.LoadDetailPage(SM.figureindex);
+            }
         }
     }
 

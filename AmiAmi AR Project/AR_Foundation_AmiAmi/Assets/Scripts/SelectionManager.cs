@@ -10,6 +10,7 @@ public class SelectionManager : MonoBehaviour
     // Core systems
     public ModelData[] ListOfFigurines;
     public static ModelData SelectedFigurine;
+    public int figureindex;
     
     [Space(10)]
     public string Ar_sceneName;
@@ -65,6 +66,7 @@ public class SelectionManager : MonoBehaviour
         DetailPageObj.SetActive(true);
         ReplaceSelected(ListOfFigurines[_figureIndex]);
         ViewingDetails = true;
+        figureindex = _figureIndex;
 
     }
 
@@ -73,6 +75,8 @@ public class SelectionManager : MonoBehaviour
         DetailPageObj.SetActive(false);
         ViewingDetails = false;
         ClearSelected();
+
+        figureindex = 0;
     }
 
     //-----------------------------------------------------------//
