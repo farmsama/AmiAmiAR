@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Hosting;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -77,6 +78,11 @@ public class SelectionManager : MonoBehaviour
         ClearSelected();
 
         figureindex = 0;
+    }
+
+    public void OpenURL()
+    {
+        Application.OpenURL("https://assetstore.unity.com/packages/3d/characters/unity-chan-model-18705");
     }
 
     //-----------------------------------------------------------//
