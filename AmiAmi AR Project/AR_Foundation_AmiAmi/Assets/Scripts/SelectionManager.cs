@@ -17,7 +17,7 @@ public class SelectionManager : MonoBehaviour
     // UI stuffs
     [Space(20)]
     public bool ViewingDetails = false;
-    //public GameObject DetailPageObj;
+    public GameObject DetailPageObj;
 
     public GameObject TargetFig_Button;
 
@@ -54,22 +54,23 @@ public class SelectionManager : MonoBehaviour
     // UI Button functions
     public void LoadARScene()
     {
-        SceneManager.LoadScene(Ar_sceneName);
-    }
-
-    public void LoadDetailPage(int _figureIndex)
-    {
-        //DetailPageObj.SetActive(true);
-        ReplaceSelected(ListOfFigurines[_figureIndex]);
-        ViewingDetails = true;
-
+        //SceneManager.LoadScene(Ar_sceneName);
+        DetailPageObj.SetActive(false);
         OpenCatalogue oc = FindObjectOfType<OpenCatalogue>();
         oc.OnButtonPressed();
     }
 
+    public void LoadDetailPage(int _figureIndex)
+    {
+        DetailPageObj.SetActive(true);
+        ReplaceSelected(ListOfFigurines[_figureIndex]);
+        ViewingDetails = true;
+
+    }
+
     public void ExitDetailPage()
     {
-        //DetailPageObj.SetActive(false);
+        DetailPageObj.SetActive(false);
         ViewingDetails = false;
         ClearSelected();
     }
