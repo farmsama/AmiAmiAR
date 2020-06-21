@@ -19,6 +19,9 @@ public class ResetScene : MonoBehaviour
 
     public void resetScene()
     {
+        SelectionManager selectionManager = FindObjectOfType<SelectionManager>();
+        selectionManager.ExitDetailPage();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

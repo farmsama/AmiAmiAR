@@ -27,6 +27,8 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     public bool isGhostingOption = true;
 
+    public OpenCatalogue openCatelogue;
+
     //ghosting Figurine
     GameObject ghostingFigure;
 
@@ -67,7 +69,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
         }
 
-        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && openCatelogue.isOpen == false)
         {
             PlaceObject();
         }
