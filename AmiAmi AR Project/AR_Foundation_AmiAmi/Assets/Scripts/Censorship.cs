@@ -1,0 +1,50 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Censorship : MonoBehaviour
+{
+    public Text textCom;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Debug EulerAngle
+        if (textCom != null)
+        {
+            textCom.text = Camera.main.transform.eulerAngles.ToString();
+        }
+
+        //Check if instantied figure is null
+        if (FindObjectOfType<ARTapToPlaceObject>().GetComponent<ARTapToPlaceObject>().GetInstantiatedFigure() != null)
+        {
+            //If player is looking at an upwards angle
+            if (Camera.main.transform.eulerAngles.x > 180 && Camera.main.transform.eulerAngles.x < 360)
+            {
+                //Enable ALL Lensflare
+                foreach (GameObject lensflare in GameObject.FindGameObjectsWithTag("LensFlare"))
+                {
+                    if (lensflare.GetComponent<Light>().enabled != true)
+                        lensflare.GetComponent<Light>().enabled = true;
+                }
+            }
+            else
+            {
+                //Disable ALL Lensflare
+                foreach (GameObject lensflare in GameObject.FindGameObjectsWithTag("LensFlare"))
+                {
+                    if (lensflare.GetComponent<Light>().enabled != false)
+                        lensflare.GetComponent<Light>().enabled = false;
+                }
+            }
+        }
+
+
+    }
+}

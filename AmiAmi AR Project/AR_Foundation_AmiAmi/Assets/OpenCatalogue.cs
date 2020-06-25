@@ -46,4 +46,9 @@ public class OpenCatalogue : MonoBehaviour
     {
         isOpen = !isOpen;
     }
+
+    public void OpenCat()
+    {
+        isOpen = false;
+    }
 }

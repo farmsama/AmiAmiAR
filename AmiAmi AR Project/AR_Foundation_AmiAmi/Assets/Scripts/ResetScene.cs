@@ -14,7 +14,10 @@ public class ResetScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.touchCount == 3)
+        {
+            resetScene();
+        }
     }
 
     public void resetScene()

@@ -69,7 +69,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
         }
 
-        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && openCatelogue.isOpen == false)
+        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && openCatelogue.isOpen == true)
         {
             PlaceObject();
         }
@@ -191,5 +191,22 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public GameObject GetInstantiatedFigure()
+    {
+        return instantiatedFigure;
+    }
+
+    public void ReplaceInstantiatedFigure(GameObject newInstantiatedFigure)
+    {
+        Vector3 originalFigurePos = new Vector3();
+        Quaternion OriginalFigureRot = new Quaternion();
+
+        originalFigurePos = instantiatedFigure.transform.position;
+        OriginalFigureRot = instantiatedFigure.transform.rotation;
+
+        Destroy(instantiatedFigure);
+        instantiatedFigure = Instantiate(newInstantiatedFigure, originalFigurePos, OriginalFigureRot);
     }
 }
