@@ -25,26 +25,30 @@ public class Censorship : MonoBehaviour
         if (FindObjectOfType<ARTapToPlaceObject>().GetComponent<ARTapToPlaceObject>().GetInstantiatedFigure() != null)
         {
             //If player is looking at an upwards angle
-            if (Camera.main.transform.eulerAngles.x > 180 && Camera.main.transform.eulerAngles.x < 360)
+
+            //Enable ALL Lensflare
+            foreach (GameObject lensflare in GameObject.FindGameObjectsWithTag("LensFlare"))
             {
-                //Enable ALL Lensflare
-                foreach (GameObject lensflare in GameObject.FindGameObjectsWithTag("LensFlare"))
+                if (Camera.main.transform.eulerAngles.x > 180 && Camera.main.transform.eulerAngles.x < 360 
+                                            && lensflare.transform.position.y > Camera.main.transform.position.y)
                 {
                     if (lensflare.GetComponent<Light>().enabled != true)
+                    {
                         lensflare.GetComponent<Light>().enabled = true;
+                    }
                 }
-            }
-            else
-            {
-                //Disable ALL Lensflare
-                foreach (GameObject lensflare in GameObject.FindGameObjectsWithTag("LensFlare"))
+                else if(Camera.main.transform.eulerAngles.x < 179 && Camera.main.transform.eulerAngles.x > 0
+                                            || lensflare.transform.position.y < Camera.main.transform.position.y)
                 {
                     if (lensflare.GetComponent<Light>().enabled != false)
+                    {
                         lensflare.GetComponent<Light>().enabled = false;
+                    }
                 }
-            }
-        }
 
+            }         
+
+        }
 
     }
 }
