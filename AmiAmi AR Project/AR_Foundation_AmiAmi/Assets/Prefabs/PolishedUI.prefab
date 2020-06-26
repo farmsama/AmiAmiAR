@@ -904,7 +904,7 @@ GameObject:
   - component: {fileID: 2530300646407791408}
   - component: {fileID: 5220363715859698881}
   m_Layer: 5
-  m_Name: Button_Back (1)
+  m_Name: Button_BackToFigSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1014,7 +1014,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 2466126194937731545}
   - component: {fileID: 1810696174778273924}
   m_Layer: 5
-  m_Name: Button_Back (2)
+  m_Name: Button_BackToDetails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1137,12 +1137,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -7314946278544111000}
-        m_MethodName: SelectStaticUI
+        m_MethodName: ExitARMode
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1516,7 +1516,7 @@ GameObject:
   - component: {fileID: 298949226958347678}
   - component: {fileID: 5071361239541692213}
   m_Layer: 5
-  m_Name: Button_Back
+  m_Name: Button_BackToSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
