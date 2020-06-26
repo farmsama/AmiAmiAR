@@ -15,20 +15,23 @@ public class Finalized_UIFunctions : MonoBehaviour
     public Vector3 closedPos = new Vector3(480, 0, 0);
     private Vector3 buttonVelocity = Vector3.zero;
     private float smoothTime = 0.5f;
+    public GameObject poseButton;
+    public GameObject resetButton;
 
-    [Space(20)]
+[Space(20)]
     public bool InARmode = false;
     public bool openPoses = false;  // Poses pages sliding out
 
     
     private SelectionManager SM;
-
-    
+    private ARTapToPlaceObject arTapToPlaceObj;
+  
 
     // Start is called before the first frame update
     void Start()
     {
         SM = FindObjectOfType<SelectionManager>();
+        arTapToPlaceObj = FindObjectOfType<ARTapToPlaceObject>();
 
         // disable all UI pages but the first page
         ActiveUI.SetActive(false);
@@ -60,6 +63,23 @@ public class Finalized_UIFunctions : MonoBehaviour
                 SM.LoadDetailPage(SM.figureindex);
             }
         }
+
+        if (arTapToPlaceObj.isFigurineInstantiated() && openPoses == false)
+        {
+            poseButton.SetActive(true);
+            resetButton.SetActive(true);
+        }
+        else
+        {
+            poseButton.SetActive(false);
+            resetButton.SetActive(false);
+        }
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && openPoses == true)
+        {
+            TogglePosesPage();
+        }
+
     }
 
     public void SelectStaticUI(int ArrayIndex)
@@ -76,7 +96,8 @@ public class Finalized_UIFunctions : MonoBehaviour
     public void EnterARMode()
     {
         InARmode = true;
-        SM.ReplaceSelected(SM.ListOfFigurines[0]);
+        //SM.ReplaceSelected(SM.ListOfFigurines[0]);
+        SelectionManager.SelectedFigurine = SM.ListOfFigurines[0];
 
         foreach (GameObject obj in StaticUI)
         {

@@ -7,6 +7,7 @@ public class Censorship : MonoBehaviour
 {
     public Text textCom;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +17,11 @@ public class Censorship : MonoBehaviour
     void Update()
     {
         //Debug EulerAngle
-        if (textCom != null)
+        if (textCom != null && Input.touchCount > 0 && FindObjectOfType<Finalized_UIFunctions>().InARmode)
         {
-            textCom.text = Camera.main.transform.eulerAngles.ToString();
+            //textCom.text = Camera.main.transform.eulerAngles.ToString();
+            //textCom.text = FindObjectOfType<Finalized_UIFunctions>().InARmode.ToString();
+            //textCom.text = FindObjectOfType<Finalized_UIFunctions>().InARmode.ToString() + " " + SelectionManager.SelectedFigurine.ToString();
         }
 
         //Check if instantied figure is null

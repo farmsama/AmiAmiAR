@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.Experimental.XR;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.UI;
 using System;
 
 public class ARTapToPlaceObject : MonoBehaviour
@@ -30,6 +31,8 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     public OpenCatalogue openCatelogue;
 
+    public Text textCom;
+
     //ghosting Figurine
     GameObject ghostingFigure;
 
@@ -44,6 +47,8 @@ public class ARTapToPlaceObject : MonoBehaviour
         tapToPlaceFigure_UI.SetActive(false);
         ResetButton_UI.SetActive(false);
         dragLeftOrRightToRot_UI.SetActive(false);
+
+        Final_UI = FindObjectOfType<Finalized_UIFunctions>();
     }
 
     void Update()
@@ -71,6 +76,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         }
 
         if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && Final_UI.InARmode == true)
+        //if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && openCatelogue.isOpen == true)
         {
             PlaceObject();
         }
@@ -81,9 +87,13 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         if (instantiatedFigure == null)
         {
+
+
             if (SelectionManager.SelectedFigurine != null)
             {
                 instantiatedFigure = Instantiate(SelectionManager.SelectedFigurine.prefab, placementPose.position, placementPose.rotation);
+
+                
 
                 if (ghostingFigure == null)
                 {
