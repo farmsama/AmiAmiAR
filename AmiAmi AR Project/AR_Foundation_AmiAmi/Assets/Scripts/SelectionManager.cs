@@ -71,7 +71,6 @@ public class SelectionManager : MonoBehaviour
         ReplaceSelected(ListOfFigurines[_figureIndex]);
         ViewingDetails = true;
         figureindex = _figureIndex;
-
     }
 
     public void ExitDetailPage()

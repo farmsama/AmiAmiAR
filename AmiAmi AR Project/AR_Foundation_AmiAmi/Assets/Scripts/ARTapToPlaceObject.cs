@@ -18,6 +18,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     GameObject instantiatedFigure = null;
 
+    private Finalized_UIFunctions Final_UI;
     public GameObject tapToPlaceFigure_UI; //Only appears when there is NO figure
     public GameObject ResetButton_UI; //Only appears when there IS A Figure
     public GameObject lookAround_UI;
@@ -69,7 +70,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
         }
 
-        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && openCatelogue.isOpen == true)
+        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && Final_UI.InARmode == true)
         {
             PlaceObject();
         }
