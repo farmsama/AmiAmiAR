@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class SelectionManager : MonoBehaviour
 {
     // Core systems
+    private ARTapToPlaceObject ARTap;
     public ModelData[] ListOfFigurines;
     public static ModelData SelectedFigurine;
     public int figureindex;
@@ -32,6 +33,8 @@ public class SelectionManager : MonoBehaviour
             //GameObject instantiateButton = Instantiate(TargetFig_Button, TargetFig_Button.transform.position, TargetFig_Button.transform.rotation);
             //instantiateButton.GetComponent<ButtonFigureIndex>().FigureIndex = i;
         }
+
+        ARTap = FindObjectOfType<ARTapToPlaceObject>();
     }
 
 
@@ -83,6 +86,18 @@ public class SelectionManager : MonoBehaviour
     public void OpenURL()
     {
         Application.OpenURL("https://assetstore.unity.com/packages/3d/characters/unity-chan-model-18705");
+    }
+
+    public void ChangePose(string text)
+    {
+        if (ARTap != null)
+        {
+            GameObject displayedFig = ARTap.GetInstantiatedFigure();
+
+            Animator poseFig = displayedFig.GetComponent<Animator>();
+
+            poseFig.Play("POSE" + text , 0, 1f);
+        }
     }
 
     //-----------------------------------------------------------//
