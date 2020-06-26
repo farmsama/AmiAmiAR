@@ -17,6 +17,7 @@ public class Finalized_UIFunctions : MonoBehaviour
     private float smoothTime = 0.5f;
     public GameObject poseButton;
     public GameObject resetButton;
+    public GameObject UIText_DragLeftnRightToRotate;
 
 [Space(20)]
     public bool InARmode = false;
@@ -68,11 +69,13 @@ public class Finalized_UIFunctions : MonoBehaviour
         {
             poseButton.SetActive(true);
             resetButton.SetActive(true);
+            UIText_DragLeftnRightToRotate.SetActive(true);
         }
         else
         {
             poseButton.SetActive(false);
             resetButton.SetActive(false);
+            UIText_DragLeftnRightToRotate.SetActive(false);
         }
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && openPoses == true)
