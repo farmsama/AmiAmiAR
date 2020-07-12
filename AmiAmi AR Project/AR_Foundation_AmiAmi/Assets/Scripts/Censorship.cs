@@ -32,7 +32,7 @@ public class Censorship : MonoBehaviour
             //Enable ALL Lensflare
             foreach (GameObject lensflare in GameObject.FindGameObjectsWithTag("LensFlare"))
             {
-                if (Camera.main.transform.eulerAngles.x > 180 && Camera.main.transform.eulerAngles.x < 360 
+                if ((Camera.main.transform.eulerAngles.x > 180 && Camera.main.transform.eulerAngles.x < 360 || Camera.main.transform.eulerAngles.x > 0 && Camera.main.transform.eulerAngles.x < 15)
                                             && lensflare.transform.position.y > Camera.main.transform.position.y)
                 {
                     if (lensflare.GetComponent<Light>().enabled != true)
@@ -40,7 +40,7 @@ public class Censorship : MonoBehaviour
                         lensflare.GetComponent<Light>().enabled = true;
                     }
                 }
-                else if(Camera.main.transform.eulerAngles.x < 179 && Camera.main.transform.eulerAngles.x > 0
+                else if(Camera.main.transform.eulerAngles.x < 179 && Camera.main.transform.eulerAngles.x > 16
                                             || lensflare.transform.position.y < Camera.main.transform.position.y)
                 {
                     if (lensflare.GetComponent<Light>().enabled != false)

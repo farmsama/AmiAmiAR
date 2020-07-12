@@ -33,6 +33,9 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     public Text textCom;
 
+    //public ARSession arSession;
+
+
     //ghosting Figurine
     GameObject ghostingFigure;
 
@@ -81,6 +84,15 @@ public class ARTapToPlaceObject : MonoBehaviour
             PlaceObject();
         }
 
+        //if (Final_UI.InARmode == true)
+        //{
+        //    arSession.enabled = true;
+        //}
+        //else
+        //{
+        //    arSession.enabled = false;
+        //}
+
     }
 
     private void PlaceObject()
@@ -125,6 +137,8 @@ public class ARTapToPlaceObject : MonoBehaviour
                 {
                     Destroy(ghostingFigure);
                 }
+
+                FindObjectOfType<AudioPlayer>().PlayFigureSpawnSFX();
             }
         }
     }
@@ -219,5 +233,16 @@ public class ARTapToPlaceObject : MonoBehaviour
 
         Destroy(instantiatedFigure);
         instantiatedFigure = Instantiate(newInstantiatedFigure, originalFigurePos, OriginalFigureRot);
+    }
+
+    public void ResetARSession()
+    {
+
+        FindObjectOfType<ARSession>().Reset();
+
+        if (instantiatedFigure != null)
+        {
+            Destroy(instantiatedFigure);
+        }
     }
 }

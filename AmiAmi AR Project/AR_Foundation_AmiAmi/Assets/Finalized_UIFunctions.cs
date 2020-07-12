@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.Experimental.XR;
+using UnityEngine.XR.ARSubsystems;
 
 public class Finalized_UIFunctions : MonoBehaviour
 {
@@ -26,7 +29,9 @@ public class Finalized_UIFunctions : MonoBehaviour
     
     private SelectionManager SM;
     private ARTapToPlaceObject arTapToPlaceObj;
-  
+
+
+    public ARSession arSession;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +48,9 @@ public class Finalized_UIFunctions : MonoBehaviour
         StaticUI[0].SetActive(true);
         openPoses = false;
 
-        Debug.Log(PoseCatalogue.localPosition);
+        //Debug.Log(PoseCatalogue.localPosition);
+
+        arSession.enabled = false;
     }
 
     // Update is called once per frame
@@ -109,6 +116,11 @@ public class Finalized_UIFunctions : MonoBehaviour
 
         ActiveUI.SetActive(true);
         openPoses = false;
+
+
+        arSession.enabled = true;
+
+
     }
 
     public void ExitARMode(int staticUI_ArrayIndex)
@@ -123,6 +135,8 @@ public class Finalized_UIFunctions : MonoBehaviour
         }
 
         StaticUI[staticUI_ArrayIndex].SetActive(true);
+
+        arSession.enabled = false;
     }
 
     public void OpenURLLink()

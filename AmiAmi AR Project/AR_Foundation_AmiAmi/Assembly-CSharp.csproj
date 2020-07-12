@@ -76,6 +76,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Scripts\ARTapToPlaceObject.cs" />
     <Compile Include="Assets\Scripts\AnimEventFunctions.cs" />
+    <Compile Include="Assets\Scripts\AudioPlayer.cs" />
     <Compile Include="Assets\Scripts\CatalogueController.cs" />
     <Compile Include="Assets\Scripts\Censorship.cs" />
     <Compile Include="Assets\Scripts\MobileTouchControl.cs" />
