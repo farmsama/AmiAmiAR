@@ -21,7 +21,7 @@ public class ContinuousMovement : MonoBehaviour
     void Start()
     {
         character = GetComponent<CharacterController>();
-        rig.GetComponent<XRRig>();
+        rig = GetComponent<XRRig>();
     }
 
     // Update is called once per frame
