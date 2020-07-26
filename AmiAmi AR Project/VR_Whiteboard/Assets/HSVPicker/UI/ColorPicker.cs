@@ -1,4 +1,6 @@
-﻿using Assets.HSVPicker;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Assets.HSVPicker;
 using UnityEngine;
 
 public class ColorPicker : MonoBehaviour
@@ -8,9 +10,9 @@ public class ColorPicker : MonoBehaviour
     private float _saturation = 0;
     private float _brightness = 0;
 
-    private float _red = 1;
-    private float _green = 0;
-    private float _blue = 0;
+    private float _red = 0;
+    private float _green = 0.5f;
+    private float _blue = 0.5f;
 
     private float _alpha = 1;
 

@@ -11,12 +11,15 @@ public class FakeInk : MonoBehaviour
     [Header("Fake Ink")]
     public GameObject fakeInkSplat;
 
+    public ColorPicker colourPicker;
+
     // Start is called before the first frame update
     void Start()
     {
         History = new List<GameObject>();
         Input = FindObjectOfType<ControllerInput_Test>();
         HandInfo = FindObjectOfType<HandPickup>();
+
     }
 
     // Update is called once per frame
@@ -68,6 +71,20 @@ public class FakeInk : MonoBehaviour
                 GameObject ink = Instantiate(fakeInkSplat, pos, rot);
                 History.Add(ink);
             }
+        }
+    }
+
+    public void UpdatePenColour()
+    {
+        if (colourPicker != null)
+        {
+            fakeInkSplat.GetComponent<Renderer>().sharedMaterial.color = new Color(colourPicker.R,
+                                                                               colourPicker.G,
+                                                                               colourPicker.B);
+
+            GetComponent<Renderer>().sharedMaterial.color = new Color(colourPicker.R,
+                                                                   colourPicker.G,
+                                                                   colourPicker.B);
         }
     }
 }
