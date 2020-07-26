@@ -739,6 +739,14 @@
       <Project>{B5553B3C-6261-BEF7-2169-5BD148E123AF}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="HSVPicker.csproj">
+      <Project>{02D41850-5AA9-05B7-CF4D-2A6B9862EF94}</Project>
+      <Name>HSVPicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="HSVPicker.Editor.csproj">
+      <Project>{06066C72-CEA3-FD20-8BCC-8757BA89AAE8}</Project>
+      <Name>HSVPicker.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Oculus.VR.Editor.csproj">
       <Project>{D646B88A-2076-AD43-C457-10C8330EE145}</Project>
       <Name>Oculus.VR.Editor</Name>

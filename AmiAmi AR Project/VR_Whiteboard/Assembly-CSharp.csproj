@@ -223,6 +223,8 @@
     <Compile Include="Assets\Scripts\ContinuousMovement.cs" />
     <Compile Include="Assets\Scripts\Experimental\ControllerInput_Test.cs" />
     <Compile Include="Assets\Scripts\Experimental\OculusTouch_InvertRotation.cs" />
+    <Compile Include="Assets\Scripts\UI_BrushSizeSlider.cs" />
+    <Compile Include="Assets\Scripts\UI_BrushSizeTextUpdate.cs" />
     <Compile Include="Assets\Scripts\WhiteBoardPen.cs" />
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarMaterialStateShader.cginc" />
@@ -876,6 +878,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="HSVPicker.csproj">
+      <Project>{02D41850-5AA9-05B7-CF4D-2A6B9862EF94}</Project>
+      <Name>HSVPicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="HSVPicker.Editor.csproj">
+      <Project>{06066C72-CEA3-FD20-8BCC-8757BA89AAE8}</Project>
+      <Name>HSVPicker.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Oculus.VR.Editor.csproj">
       <Project>{D646B88A-2076-AD43-C457-10C8330EE145}</Project>
       <Name>Oculus.VR.Editor</Name>
