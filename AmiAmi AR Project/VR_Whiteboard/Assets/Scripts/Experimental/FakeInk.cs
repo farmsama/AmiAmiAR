@@ -13,6 +13,8 @@ public class FakeInk : MonoBehaviour
 
     public ColorPicker colourPicker;
 
+    Color inkColour;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,16 +40,20 @@ public class FakeInk : MonoBehaviour
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
 
-            if (HandInfo.isRightHanded == true && Input.RightTriggerBool)
-            {
-                GameObject ink = Instantiate(fakeInkSplat, pos, rot);
-                History.Add(ink);
-            }
-            else if (HandInfo.isRightHanded == false && Input.LeftTriggerBool)
-            {
-                GameObject ink = Instantiate(fakeInkSplat, pos, rot);
-                History.Add(ink);
-            }
+            //if (HandInfo.isRightHanded == true && Input.RightTriggerBool)
+            //{
+            //    GameObject ink = Instantiate(fakeInkSplat, pos, rot);
+            //    History.Add(ink);
+            //}
+            //else if (HandInfo.isRightHanded == false && Input.LeftTriggerBool)
+            //{
+            //    GameObject ink = Instantiate(fakeInkSplat, pos, rot);
+            //    History.Add(ink);
+            //}
+
+            GameObject ink = Instantiate(fakeInkSplat, pos, rot);
+            ink.GetComponent<Renderer>().material.color = inkColour;
+            History.Add(ink);
         }
     }
 
@@ -61,16 +67,20 @@ public class FakeInk : MonoBehaviour
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
 
-            if (HandInfo.isRightHanded == true && Input.RightTriggerBool)
-            {
-                GameObject ink = Instantiate(fakeInkSplat, pos, rot);
-                History.Add(ink);
-            }
-            else if (HandInfo.isRightHanded == false && Input.LeftTriggerBool)
-            {
-                GameObject ink = Instantiate(fakeInkSplat, pos, rot);
-                History.Add(ink);
-            }
+            //if (HandInfo.isRightHanded == true && Input.RightTriggerBool)
+            //{
+            //    GameObject ink = Instantiate(fakeInkSplat, pos, rot);
+            //    History.Add(ink);
+            //}
+            //else if (HandInfo.isRightHanded == false && Input.LeftTriggerBool)
+            //{
+            //    GameObject ink = Instantiate(fakeInkSplat, pos, rot);
+            //    History.Add(ink);
+            //}
+
+            GameObject ink = Instantiate(fakeInkSplat, pos, rot);
+            ink.GetComponent<Renderer>().material.color = inkColour;
+            History.Add(ink);
         }
     }
 
@@ -78,13 +88,15 @@ public class FakeInk : MonoBehaviour
     {
         if (colourPicker != null)
         {
-            fakeInkSplat.GetComponent<Renderer>().sharedMaterial.color = new Color(colourPicker.R,
-                                                                               colourPicker.G,
-                                                                               colourPicker.B);
+            //fakeInkSplat.GetComponent<Renderer>().sharedMaterial.color = new Color(colourPicker.R,
+            //                                                                   colourPicker.G,
+            //                                                                   colourPicker.B);
 
-            GetComponent<Renderer>().sharedMaterial.color = new Color(colourPicker.R,
+            GetComponent<Renderer>().material.color = new Color(colourPicker.R,
                                                                    colourPicker.G,
                                                                    colourPicker.B);
+
+            inkColour = new Color(colourPicker.R, colourPicker.G, colourPicker.B);
         }
     }
 }
