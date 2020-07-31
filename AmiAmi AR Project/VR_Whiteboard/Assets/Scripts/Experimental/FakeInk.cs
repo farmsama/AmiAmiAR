@@ -86,17 +86,17 @@ public class FakeInk : MonoBehaviour
 
     public void UpdatePenColour()
     {
-        if (colourPicker != null)
-        {
-            //fakeInkSplat.GetComponent<Renderer>().sharedMaterial.color = new Color(colourPicker.R,
-            //                                                                   colourPicker.G,
-            //                                                                   colourPicker.B);
-
-            GetComponent<Renderer>().material.color = new Color(colourPicker.R,
-                                                                   colourPicker.G,
-                                                                   colourPicker.B);
-
-            inkColour = new Color(colourPicker.R, colourPicker.G, colourPicker.B);
-        }
+       // if (colourPicker != null)
+       // {
+       //     //fakeInkSplat.GetComponent<Renderer>().sharedMaterial.color = new Color(colourPicker.R,
+       //     //                                                                   colourPicker.G,
+       //     //                                                                   colourPicker.B);
+       //
+       //     GetComponent<Renderer>().material.color = new Color(colourPicker.R,
+       //                                                            colourPicker.G,
+       //                                                            colourPicker.B);
+       //
+       //     inkColour = new Color(colourPicker.R, colourPicker.G, colourPicker.B);
+       // }
     }
 }

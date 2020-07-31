@@ -5,10 +5,16 @@ using UnityEngine;
 public class BrushSettingGrp : MonoBehaviour
 {
     public GameObject BrushSettingGrpObj;
+    
+    // VR controller
+    ControllerInput_Test input;
+    bool lastGrip = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        input = FindObjectOfType<ControllerInput_Test>();
     }
 
     // Update is called once per frame
@@ -18,5 +24,16 @@ public class BrushSettingGrp : MonoBehaviour
         {
             BrushSettingGrpObj.SetActive(!BrushSettingGrpObj.activeInHierarchy);
         }
+
+        // Check click once
+        if (input.LeftGripBool == true && lastGrip == false)
+            ToggleBrushSetting();
+
+        lastGrip = input.LeftGripBool;
+    }
+
+    public void ToggleBrushSetting()
+    {
+        BrushSettingGrpObj.SetActive(!BrushSettingGrpObj.activeInHierarchy);
     }
 }

@@ -1,0 +1,5 @@
+sceneSetups:
+- path: E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Assets/Scenes/CombinedScene.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0

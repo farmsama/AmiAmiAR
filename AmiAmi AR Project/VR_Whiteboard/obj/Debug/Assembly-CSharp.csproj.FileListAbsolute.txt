@@ -1,0 +1,2 @@
+E:\TempSherman\Github_VRproject\AmiAmiAR\AmiAmi AR Project\VR_Whiteboard\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+E:\TempSherman\Github_VRproject\AmiAmiAR\AmiAmi AR Project\VR_Whiteboard\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
