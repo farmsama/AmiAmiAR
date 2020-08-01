@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 16
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{B5553B3C-6261-BEF7-2169-5BD148E123AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSVPicker", "HSVPicker.csproj", "{02D41850-5AA9-05B7-CF4D-2A6B9862EF94}"
@@ -8,6 +8,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oculus.VR", "Oculus.VR.csproj", "{8A123616-92E7-115B-4798-D7F9BB858A6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oculus.Platform", "Oculus.Platform.csproj", "{34C0A1F9-48BF-56F8-BED9-677DF9AACC6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Substance.EditorHelper", "Substance.EditorHelper.csproj", "{64850D77-794A-0371-9CB0-31C0F0710993}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Substance.Platform", "Substance.Platform.csproj", "{B1EB2E46-9ABC-CE6F-717F-72CD8241E851}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{9DA26684-8BD8-9167-E686-C2FD521EBCCF}"
 EndProject
@@ -41,6 +45,14 @@ Global
 		{34C0A1F9-48BF-56F8-BED9-677DF9AACC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34C0A1F9-48BF-56F8-BED9-677DF9AACC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34C0A1F9-48BF-56F8-BED9-677DF9AACC6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64850D77-794A-0371-9CB0-31C0F0710993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64850D77-794A-0371-9CB0-31C0F0710993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64850D77-794A-0371-9CB0-31C0F0710993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64850D77-794A-0371-9CB0-31C0F0710993}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1EB2E46-9ABC-CE6F-717F-72CD8241E851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1EB2E46-9ABC-CE6F-717F-72CD8241E851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1EB2E46-9ABC-CE6F-717F-72CD8241E851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1EB2E46-9ABC-CE6F-717F-72CD8241E851}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9DA26684-8BD8-9167-E686-C2FD521EBCCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9DA26684-8BD8-9167-E686-C2FD521EBCCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DA26684-8BD8-9167-E686-C2FD521EBCCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
