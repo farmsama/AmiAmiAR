@@ -1,19 +1,40 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBrush : MonoBehaviour
 {
     public bool isDrawing = true;
     public float raydist = 1f;
+    int fuckyourfloat = 1;
+
+    UI_BrushSizeSlider BrushSize;
+    ColorPicker BrushColor;
+
+    public GameObject BrushSettingGrp;
 
     private void Start()
     {
         //var data = PaintCanvas.GetAllTextureData();
         //var zippeddata = data.Compress();
-
+        BrushSize = FindObjectOfType<UI_BrushSizeSlider>();
+        BrushColor = FindObjectOfType<ColorPicker>();
     }
 
     private void FixedUpdate()
     {
+        
+    }
+
+
+    private void Update()
+    {
+        if (BrushSettingGrp.activeSelf == true)
+        {
+            // Converting float to Int
+            fuckyourfloat = Convert.ToInt32(BrushSize.slider.value);
+        }
+
         // Bit shift the index of the layer (8) to get a bit mask
         int layerMask = 1 << 8;
 
@@ -44,7 +65,7 @@ public class PlayerBrush : MonoBehaviour
                 pixelUV.x *= tex.width;
                 pixelUV.y *= tex.height;
 
-                BrushAreaWithColor(pixelUV, Color.black, 1);
+                BrushAreaWithColor(pixelUV, BrushColor.CurrentColor, fuckyourfloat);
             }
         }
         else
@@ -52,11 +73,7 @@ public class PlayerBrush : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * raydist, Color.white);
             //Debug.Log("Did not Hit");
         }
-    }
-
-
-    private void Update()
-    {
+        
         //   if (Input.GetMouseButton(0))
         //   {
         //       Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -88,7 +105,6 @@ public class PlayerBrush : MonoBehaviour
     }
 
 
-
     private void BrushAreaWithColor(Vector2 pixelUV, Color color, int size)
     {
         for (int x = -size; x < size; x++)
@@ -97,7 +113,13 @@ public class PlayerBrush : MonoBehaviour
             {
                 if (isDrawing)
                 {
-                    PaintCanvas.Texture.SetPixel((int)pixelUV.x + x, (int)pixelUV.y + y, color);
+                    //Check if color is the same
+                    Color currColor = PaintCanvas.Texture.GetPixel((int)pixelUV.x + x, (int)pixelUV.y + y);
+
+                    if (currColor != color)
+                    {
+                        PaintCanvas.Texture.SetPixel((int)pixelUV.x + x, (int)pixelUV.y + y, color);
+                    }
                 }
                 else
                 {

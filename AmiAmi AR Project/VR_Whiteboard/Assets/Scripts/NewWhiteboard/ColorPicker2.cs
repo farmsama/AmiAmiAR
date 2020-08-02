@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ColorPicker : MonoBehaviour
+public class ColorPicker2 : MonoBehaviour
 {
     public static Color SelectedColor { get; private set; }
 
