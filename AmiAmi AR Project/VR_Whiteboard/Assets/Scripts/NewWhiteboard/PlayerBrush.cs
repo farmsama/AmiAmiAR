@@ -7,6 +7,7 @@ public class PlayerBrush : MonoBehaviour
     public bool isDrawing = true;
     public float raydist = 1f;
     int fuckyourfloat = 1;
+    Color fuckyourcolor = Color.black;
 
     UI_BrushSizeSlider BrushSize;
     ColorPicker BrushColor;
@@ -17,8 +18,6 @@ public class PlayerBrush : MonoBehaviour
     {
         //var data = PaintCanvas.GetAllTextureData();
         //var zippeddata = data.Compress();
-        BrushSize = FindObjectOfType<UI_BrushSizeSlider>();
-        BrushColor = FindObjectOfType<ColorPicker>();
     }
 
     private void FixedUpdate()
@@ -31,8 +30,15 @@ public class PlayerBrush : MonoBehaviour
     {
         if (BrushSettingGrp.activeSelf == true)
         {
+            Debug.Log("active");
+
+            BrushSize = FindObjectOfType<UI_BrushSizeSlider>();
+            BrushColor = FindObjectOfType<ColorPicker>();
+
             // Converting float to Int
             fuckyourfloat = Convert.ToInt32(BrushSize.slider.value);
+
+            fuckyourcolor = BrushColor.CurrentColor;
         }
 
         // Bit shift the index of the layer (8) to get a bit mask
@@ -65,7 +71,7 @@ public class PlayerBrush : MonoBehaviour
                 pixelUV.x *= tex.width;
                 pixelUV.y *= tex.height;
 
-                BrushAreaWithColor(pixelUV, BrushColor.CurrentColor, fuckyourfloat);
+                BrushAreaWithColor(pixelUV, fuckyourcolor, fuckyourfloat);
             }
         }
         else
