@@ -31,10 +31,11 @@ public class TogglePenAndPointer : MonoBehaviour
     public void TogglePenSetting()
     {
         PenPoint[0].SetActive(!PenPoint[0].activeSelf);
+        PenPoint[1].SetActive(!PenPoint[1].activeSelf);
 
 
-        LineRenderer lr = PenPoint[1].GetComponent<LineRenderer>();
-        lr.enabled = !lr.enabled;
+        //LineRenderer lr = PenPoint[1].GetComponent<LineRenderer>();
+        //lr.enabled = !lr.enabled;
 
     }
 }
