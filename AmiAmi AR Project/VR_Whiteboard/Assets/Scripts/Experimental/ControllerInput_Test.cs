@@ -48,7 +48,7 @@ public class ControllerInput_Test : MonoBehaviour
     {
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
-        
+
 
         // Left Hand Controller
         if (leftHandDevices.Count >= 1)
@@ -92,8 +92,8 @@ public class ControllerInput_Test : MonoBehaviour
 
 
         // DebugPrinting
-     //   if (DisplayDebug)
-     //       UpdateDetection();
+        if (DisplayDebug)
+            UpdateDetection();
     }
 
     public void UpdateDetection(

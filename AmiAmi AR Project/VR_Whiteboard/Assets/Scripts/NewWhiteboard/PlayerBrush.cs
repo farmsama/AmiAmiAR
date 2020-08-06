@@ -30,7 +30,7 @@ public class PlayerBrush : MonoBehaviour
     {
         if (BrushSettingGrp.activeSelf == true)
         {
-            //SDebug.Log("active");
+            Debug.Log("active");
 
             BrushSize = FindObjectOfType<UI_BrushSizeSlider>();
             BrushColor = FindObjectOfType<ColorPicker>();
