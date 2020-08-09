@@ -88,11 +88,11 @@
     <None Include="Assets\Oculus\VR\Editor\Oculus.VR.Editor.asmdef" />
     <None Include="Assets\Oculus\VR\Editor\network_sec_config.xml" />
     <None Include="Assets\Oculus\VR\Editor\AndroidManifest.OVRSubmission.xml" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>

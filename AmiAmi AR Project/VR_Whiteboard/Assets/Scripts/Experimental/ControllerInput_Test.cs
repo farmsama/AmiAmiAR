@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.UI;
-using UnityEditor.Build.Reporting;
 
 public class ControllerInput_Test : MonoBehaviour
 {

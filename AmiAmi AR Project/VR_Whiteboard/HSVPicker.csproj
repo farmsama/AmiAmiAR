@@ -83,11 +83,11 @@
     <None Include="Assets\HSVPicker\HSVPicker.asmdef" />
     <None Include="Assets\HSVPicker\Resources\Shaders\Compute\GenerateSVTexture.compute" />
     <None Include="Assets\HSVPicker\README.txt" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/TempSherman/UnityEditor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

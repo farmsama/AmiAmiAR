@@ -22,11 +22,11 @@ public class ToggleEraser : MonoBehaviour
     void Update()
     {
 
-        if (input.Abutton == true && lastGrip == false)
+        if (input.Bbutton == true && lastGrip == false)
             toggleErasermode();
 
 
-        lastGrip = input.Abutton;
+        lastGrip = input.Bbutton;
     }
 
     void toggleErasermode()

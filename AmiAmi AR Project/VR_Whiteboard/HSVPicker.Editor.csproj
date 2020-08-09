@@ -65,11 +65,11 @@
   <ItemGroup>
     <Compile Include="Assets\HSVPicker\Editor\BoxSliderEditor.cs" />
     <None Include="Assets\HSVPicker\Editor\HSVPicker.Editor.asmdef" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>E:/TempSherman/Github_VRproject/AmiAmiAR/AmiAmi AR Project/VR_Whiteboard/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
