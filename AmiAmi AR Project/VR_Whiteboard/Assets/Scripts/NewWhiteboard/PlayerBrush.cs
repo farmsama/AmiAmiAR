@@ -73,6 +73,26 @@ public class PlayerBrush : MonoBehaviour
 
                 BrushAreaWithColor(pixelUV, fuckyourcolor, fuckyourfloat);
             }
+
+            var pallet1 = hit.collider.GetComponent<PaintCanvas1>();
+            if (pallet1 != null)
+            {
+                Debug.Log(hit.textureCoord);
+                Debug.Log(hit.point);
+
+                Renderer rend = hit.transform.GetComponent<Renderer>();
+                MeshCollider meshCollider = hit.collider as MeshCollider;
+
+                if (rend == null || rend.sharedMaterial == null || rend.sharedMaterial.mainTexture == null || meshCollider == null)
+                    return;
+
+                Texture2D tex = rend.material.mainTexture as Texture2D;
+                Vector2 pixelUV = hit.textureCoord;
+                pixelUV.x *= tex.width;
+                pixelUV.y *= tex.height;
+
+                BrushAreaWithColor1(pixelUV, fuckyourcolor, fuckyourfloat);
+            }
         }
         else
         {
@@ -137,5 +157,32 @@ public class PlayerBrush : MonoBehaviour
         }
 
         PaintCanvas.Texture.Apply();
+    }
+    private void BrushAreaWithColor1(Vector2 pixelUV, Color color, int size)
+    {
+        for (int x = -size; x < size; x++)
+        {
+            for (int y = -size; y < size; y++)
+            {
+                if (isDrawing)
+                {
+                    //Check if color is the same
+                    Color currColor = PaintCanvas1.Texture.GetPixel((int)pixelUV.x + x, (int)pixelUV.y + y);
+
+                    if (currColor != color)
+                    {
+                        PaintCanvas1.Texture.SetPixel((int)pixelUV.x + x, (int)pixelUV.y + y, color);
+                    }
+                }
+                else
+                {
+                    // Erase version
+                    Color originalColor = PaintCanvas1.originalTexture.GetPixel((int)pixelUV.x + x, (int)pixelUV.y + y);
+                    PaintCanvas1.Texture.SetPixel((int)pixelUV.x + x, (int)pixelUV.y + y, originalColor);
+                }
+            }
+        }
+
+        PaintCanvas1.Texture.Apply();
     }
 }

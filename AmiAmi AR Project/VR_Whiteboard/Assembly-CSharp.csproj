@@ -233,6 +233,7 @@
     <Compile Include="Assets\Scripts\NewWhiteboard\ByteArrayExtensions.cs" />
     <Compile Include="Assets\Scripts\NewWhiteboard\ColorPicker2.cs" />
     <Compile Include="Assets\Scripts\NewWhiteboard\PaintCanvas.cs" />
+    <Compile Include="Assets\Scripts\NewWhiteboard\PaintCanvas1.cs" />
     <Compile Include="Assets\Scripts\NewWhiteboard\PlayerBrush.cs" />
     <Compile Include="Assets\Scripts\NewWhiteboard\VRinput.cs" />
     <Compile Include="Assets\Scripts\NewWhiteboard\VRinputmodule.cs" />
