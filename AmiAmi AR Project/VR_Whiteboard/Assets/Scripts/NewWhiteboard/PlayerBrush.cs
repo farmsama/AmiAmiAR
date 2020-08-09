@@ -14,6 +14,10 @@ public class PlayerBrush : MonoBehaviour
 
     public GameObject BrushSettingGrp;
 
+    [Space(10)]
+    public GameObject boardSphere;
+    public Text distanceprint;
+
     private void Start()
     {
         //var data = PaintCanvas.GetAllTextureData();
@@ -100,34 +104,46 @@ public class PlayerBrush : MonoBehaviour
             //Debug.Log("Did not Hit");
         }
         
-        //   if (Input.GetMouseButton(0))
-        //   {
-        //       Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //
-        //       RaycastHit hit;
-        //       if (Physics.Raycast(ray, out hit))
-        //       {
-        //           var pallet = hit.collider.GetComponent<PaintCanvas>();
-        //           if (pallet != null)
-        //           {
-        //               Debug.Log(hit.textureCoord);
-        //               Debug.Log(hit.point);
-        //           
-        //               Renderer rend = hit.transform.GetComponent<Renderer>();
-        //               MeshCollider meshCollider = hit.collider as MeshCollider;
-        //           
-        //               if (rend == null || rend.sharedMaterial == null || rend.sharedMaterial.mainTexture == null || meshCollider == null)
-        //                   return;
-        //           
-        //               Texture2D tex = rend.material.mainTexture as Texture2D;
-        //               Vector2 pixelUV = hit.textureCoord;
-        //               pixelUV.x *= tex.width;
-        //               pixelUV.y *= tex.height;
-        //           
-        //               BrushAreaWithColor(pixelUV, ColorPicker.SelectedColor, BrushSizeSlider.BrushSize);
-        //           }
-        //       }
-        //   }
+
+        Vector3 pentip = transform.position + (transform.TransformDirection(Vector3.forward) * raydist);
+
+        Transform _sphere = boardSphere.transform;
+
+        _sphere.position = new Vector3(pentip.x, pentip.y , boardSphere.transform.position.z);
+
+        // adjusting position
+        if (_sphere.position.y < 2.58f)
+            _sphere.position = new Vector3(_sphere.position.x, 2.58f, _sphere.position.z);
+        else if (_sphere.position.y > 3.84f)
+            _sphere.position = new Vector3(_sphere.position.x, 3.84f, _sphere.position.z);
+
+        if (_sphere.position.x < -1.74f)
+            _sphere.position = new Vector3(-1.74f, _sphere.position.y, _sphere.position.z);
+        else if (_sphere.position.x > 1.68)
+            _sphere.position = new Vector3(1.68f, _sphere.position.y, _sphere.position.z);
+
+
+        float distancebetweenpenandboard = Vector3.Distance(pentip, boardSphere.transform.position);
+        float roundToDP = Mathf.Round(distancebetweenpenandboard * 100f) / 100f;
+
+        distanceprint.text = roundToDP.ToString();
+
+
+        // adjust text size
+        float roundToInt = Mathf.Round(distancebetweenpenandboard);
+
+        if (roundToDP >= 1)
+        {
+            distanceprint.fontSize = 6;
+        }
+        else if (roundToDP >= 0.2f)
+        {
+            distanceprint.fontSize = 3;
+        }
+        else
+        {
+            distanceprint.fontSize =  2;
+        }
     }
 
 
