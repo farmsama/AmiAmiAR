@@ -228,6 +228,7 @@
     <Compile Include="Assets\Scripts\Experimental\HandPickup.cs" />
     <Compile Include="Assets\Scripts\Experimental\OculusTouch_InvertRotation.cs" />
     <Compile Include="Assets\Scripts\Experimental\PointerLine.cs" />
+    <Compile Include="Assets\Scripts\Experimental\ToggleEraser.cs" />
     <Compile Include="Assets\Scripts\Experimental\TogglePenAndPointer.cs" />
     <Compile Include="Assets\Scripts\NewWhiteboard\BrushSizeSlider.cs" />
     <Compile Include="Assets\Scripts\NewWhiteboard\ByteArrayExtensions.cs" />

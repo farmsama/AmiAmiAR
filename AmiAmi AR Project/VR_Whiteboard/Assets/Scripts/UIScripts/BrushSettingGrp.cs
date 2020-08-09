@@ -5,6 +5,7 @@ using UnityEngine;
 public class BrushSettingGrp : MonoBehaviour
 {
     public GameObject BrushSettingGrpObj;
+    public GameObject MathQN;
     
     // VR controller
     ControllerInput_Test input;
@@ -35,5 +36,6 @@ public class BrushSettingGrp : MonoBehaviour
     public void ToggleBrushSetting()
     {
         BrushSettingGrpObj.SetActive(!BrushSettingGrpObj.activeInHierarchy);
+        MathQN.SetActive(!MathQN.activeInHierarchy);
     }
 }
